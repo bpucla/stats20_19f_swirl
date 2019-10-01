@@ -168,7 +168,7 @@
 - Class: cmd_question
   Output: Using proper notation, clarify (add parentheses) the assignment above the way R is interpretting what Jerry entered.
   CorrectAnswer: "jerry <- 3 + (((4 ^ -1) / 2) * 5)"
-  AnswerTests: any_of_exprs("jerry <- 3 + (((4 ^ -1) / 2) * 5)", "jerry <- 3 + ((4 ^ (-1)) / 2) * 5)")
+  AnswerTests: any_of_exprs("jerry <- 3 + (((4 ^ -1) / 2) * 5)", "jerry <- 3 + ((4 ^ (-1) / 2) * 5)")
   Hint: "There should be three sets of parentheses."
 
 - Class: cmd_question
