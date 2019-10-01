@@ -52,8 +52,8 @@ submit_log <- function(...){
                           skipped = p(log_$skipped, nrow_, NA),
                           datetime = p(log_$datetime, nrow_, NA),
                           stringsAsFactors = FALSE)
-    write.table(si, file = temp, row.names = FALSE, col.names = TRUE, sep = ",") # drop if not working
-    write.table(log_tbl, file = temp, row.names = FALSE, col.names = TRUE, append = TRUE, sep = ",")
+    suppressWarnings(write.table(si, file = temp, row.names = FALSE, col.names = TRUE, sep = ",")) # drop if not working
+    suppressWarnings(write.table(log_tbl, file = temp, row.names = FALSE, col.names = TRUE, append = TRUE, sep = ","))
     encoded_log <- base64encode(temp)
     browseURL(paste0(pre_fill_link, encoded_log))
   }
