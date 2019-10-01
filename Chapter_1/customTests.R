@@ -25,7 +25,8 @@ getLog <- function(){
 
 submit_log <- function(...){
   si <- Sys.info()
-  user_info <- paste(names(si), ": ", si, sep = "", collapse = "; ")
+  
+  user_info <- paste(names(si), ": ", si, sep = "")
   
   e <- get("e", parent.frame())
 
