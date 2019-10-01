@@ -85,7 +85,7 @@
   AnswerTests: omnitest(correctExpr="pi")
 
 - Class: cmd_question
-  Output: Well, that's a problem! We'd beeter fix that before we do something crazy like try to calculate the surface area of a cylinder. rm() can be used to remove objects. These can be specified successively as character strings, or in the character vector list, or through a combination of both. All objects thus specified will be removed. Let's get rid of the problematic pi by typing "rm(pi)" then pressing enter.
+  Output: Well, that's a problem! We'd better fix that before we do something crazy like try to calculate the area of a circle. rm() can be used to remove objects. These can be specified successively as character strings, or in the character vector list, or through a combination of both. All objects thus specified will be removed. Let's get rid of the problematic pi by typing "rm(pi)" then pressing enter.
   CorrectAnswer: "rm(pi)"
   AnswerTests: omnitest(correctExpr="rm(pi)")
 
@@ -99,7 +99,7 @@
 
 - Class: text
   Output: |-
-    R can do basic arithmatic with the +, -, *, /, and ^ operators. R follows the standard order of operations from basic arithmetic -- PEMDAS (or BEDMAS).
+    R can do basic arithmetic with the +, -, *, /, and ^ operators. R follows the standard order of operations from basic arithmetic -- PEMDAS (or BEDMAS).
   
     Parentheses (or Brackets)
   
@@ -155,6 +155,8 @@
     Suppose Pawnee Parks and Recreation employee Jerry Gergich transcribed a mathematical expression from a sheet of paper into R by typing the following command:
 
     jerry <- 3 + 4 ^ - 1 / 2 * 5
+    
+    State auditor Ben Wyatt looked at the expression on the paper and noticed that the expression should equal 17.5.
 
 - Class: mult_question
   Output: Does the object jerry contain the correct value?
@@ -166,7 +168,7 @@
 - Class: cmd_question
   Output: Using proper notation, clarify (add parentheses) the assignment above the way R is interpretting what Jerry entered.
   CorrectAnswer: "jerry <- 3 + (((4 ^ -1) / 2) * 5)"
-  AnswerTests: any_of_exprs("jerry <- 3 + (((4 ^ -1) / 2) * 5)", "jerry <- 3 + (((4 ^ (-1)) / 2) * 5)")
+  AnswerTests: any_of_exprs("jerry <- 3 + (((4 ^ -1) / 2) * 5)", "jerry <- 3 + ((4 ^ (-1)) / 2) * 5)")
   Hint: "There should be three sets of parentheses."
 
 - Class: cmd_question
