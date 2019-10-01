@@ -24,9 +24,7 @@ getLog <- function(){
 }
 
 submit_log <- function(...){
-  si <- Sys.info()
-  
-  user_info <- paste(names(si), ": ", si, sep = "")
+  si <- as.data.frame(t(Sys.info()))
   
   e <- get("e", parent.frame())
 
@@ -54,7 +52,7 @@ submit_log <- function(...){
                           skipped = p(log_$skipped, nrow_, NA),
                           datetime = p(log_$datetime, nrow_, NA),
                           stringsAsFactors = FALSE)
-    write.table(user_info, file = temp, row.names = FALSE) # drop if not working
+    write.table(si, file = temp, row.names = FALSE) # drop if not working
     write.table(log_tbl, file = temp, row.names = FALSE, append = TRUE)
     encoded_log <- base64encode(temp)
     browseURL(paste0(pre_fill_link, encoded_log))
