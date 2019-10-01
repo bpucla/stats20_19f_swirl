@@ -53,8 +53,8 @@ submit_log <- function(...){
                           skipped = p(log_$skipped, nrow_, NA),
                           datetime = p(log_$datetime, nrow_, NA),
                           stringsAsFactors = FALSE)
-    write.csv(user_info, file = temp, row.names = FALSE) # drop if not working
-    write.csv(log_tbl, file = temp, row.names = FALSE, append = TRUE)
+    write.table(user_info, file = temp, row.names = FALSE) # drop if not working
+    write.table(log_tbl, file = temp, row.names = FALSE, append = TRUE)
     encoded_log <- base64encode(temp)
     browseURL(paste0(pre_fill_link, encoded_log))
   }
