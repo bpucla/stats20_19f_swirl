@@ -142,7 +142,7 @@
 - Class: cmd_question
   Output: Logarithm base-4 of 30
   CorrectAnswer: "log(30, 4)"
-  AnswerTests: omnitest(correctExpr="log(30, 4)")
+  AnswerTests: any_of_exprs("log(30, 4)", "logb(30, 4)", "log(30, base = 4)", "logb(30, base = 4)")
   
 # basic arithmatic
 # modular arithmatic
@@ -166,13 +166,13 @@
 - Class: cmd_question
   Output: Using proper notation, clarify (add parentheses) the assignment above the way R is interpretting what Jerry entered.
   CorrectAnswer: "jerry <- 3 + (((4 ^ -1) / 2) * 5)"
-  AnswerTests: omnitest(correctExpr="jerry <- 3 + (((4 ^ -1) / 2) * 5)")
+  AnswerTests: any_of_exprs("jerry <- 3 + (((4 ^ -1) / 2) * 5)", "jerry <- 3 + (((4 ^ (-1)) / 2) * 5)")
   Hint: "There should be three sets of parentheses."
 
 - Class: cmd_question
   Output: State auditor Ben Wyatt looked at the expression on the paper and noticed that the expression should equal 17.5. How would you fix Jerry's command to obtain the same result as Ben?
   CorrectAnswer: "jerry <- (3 + 4 ^ - (1 / 2)) * 5"
-  AnswerTests: omnitest(correctExpr="jerry <- (3 + 4 ^ - (1 / 2)) * 5")
+  AnswerTests: any_of_exprs("jerry <- (3 + 4 ^ - (1 / 2)) * 5", "jerry <- (3 + 4 ^ (-1 / 2)) * 5")
   Hint: "There should be two sets of parentheses."
 
 - Class: script
