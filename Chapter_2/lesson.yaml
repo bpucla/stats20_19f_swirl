@@ -10,26 +10,26 @@
 # making vectors
 # c()
 - Class: cmd_question
-Output: |-
-	Since vectors are perhaps the most fundamental object in R, you will end up constructing innumerable vectors in your life. The easiest way to construct a vector is by combining any number of like objects with the 'c()' function.
-
-c(1, 1, 2, 3, 5, 8)
-
-c(2, 3, 5, 7, 11, 13, 17, 19)
-
-c(13, 2, 78, 23, 6, 8)
-
-etc.
-
-Construct a vector of the first five, non-negative, even numbers using the 'c()' function and store it in an object named even5.
-CorrectAnswer: "even5 <- c(0, 2, 4, 6, 8)"
-AnswerTests: omnitest(correctExpr="even5 <- c(0, 2, 4, 6, 8)")
+  Output: |-
+  	Since vectors are perhaps the most fundamental object in R, you will end up constructing innumerable vectors in your life. The easiest way to construct a vector is by combining any number of like objects with the 'c()' function.
+  
+    c(1, 1, 2, 3, 5, 8)
+  
+    c(2, 3, 5, 7, 11, 13, 17, 19)
+  
+    c(13, 2, 78, 23, 6, 8)
+  
+    etc.
+  
+    Construct a vector of the first five, non-negative, even numbers using the 'c()' function and store it in an object named even5.
+  CorrectAnswer: "even5 <- c(0, 2, 4, 6, 8)"
+  AnswerTests: omnitest(correctExpr="even5 <- c(0, 2, 4, 6, 8)")
 
 - Class: cmd_question
-Output: |-
-	Enter 'even5' below to verify the result.
-CorrectAnswer: "even5"
-AnswerTests: omnitest(correctExpr="even5")
+  Output: |-
+  	Enter 'even5' below to verify the result.
+  CorrectAnswer: "even5"
+  AnswerTests: omnitest(correctExpr="even5")
 
 # making sequences
 # e.g. identical(1:10, seq(1,10,1)) == FALSE
@@ -37,59 +37,55 @@ AnswerTests: omnitest(correctExpr="even5")
 
 
 - Class: cmd_question
-Output: |-
-	
-	For short vectors with known contents, the 'c()' function works well and you should use it. But, if you had to construct a longer vector or a vector of dynamic length 'c()' will probably not cut it.
-
-Often you may need a sequence of numbers, the simplest way to create a sequence of numbers in R is by using the `:` operator, pronounced colon.
-
-Enter ?`:` below to see the help file for the colon operator.
-CorrectAnswer: "?`:`"
-AnswerTests: omnitest(correctExpr="?`:`")
-
-- Class: cmd_question
-Output: Now, type 1:20 to see how it works.
-CorrectAnswer: '1:20'
-AnswerTests: omnitest(correctExpr='1:20')
-Hint: Type 1:20 with no spaces. Make sure to use a regular colon and NOT a semi-colon.
+  Output: |-
+  	
+  	For short vectors with known contents, the 'c()' function works well and you should use it. But, if you had to construct a longer vector or a vector of dynamic length 'c()' will probably not cut it.
+  
+    Often you may need a sequence of numbers, the simplest way to create a sequence of numbers in R is by using the `:` operator, pronounced colon.
+  
+    Enter ?`:` below to see the help file for the colon operator.
+  CorrectAnswer: "?`:`"
+  AnswerTests: omnitest(correctExpr="?`:`")
 
 - Class: cmd_question
-Output: That gave us every integer between (and including) 1 and 20. We could also
-use it to create a sequence of real numbers. For example, try pi:10.
-CorrectAnswer: pi:10
-AnswerTests: omnitest(correctExpr='pi:10')
-Hint: Enter pi:10 and see what happens. pi is a predefined constant in R that takes
-on the value 3.1415....
+  Output: Now, type 1:20 to see how it works.
+  CorrectAnswer: '1:20'
+  AnswerTests: omnitest(correctExpr='1:20')
+  Hint: Type 1:20 with no spaces. Make sure to use a regular colon and NOT a semi-colon.
+
+- Class: cmd_question
+  Output: That gave us every integer between (and including) 1 and 20. We could also use it to create a sequence of real numbers. For example, try pi:10.
+  CorrectAnswer: pi:10
+  AnswerTests: omnitest(correctExpr='pi:10')
+  Hint: Enter pi:10 and see what happens. pi is a predefined constant in R that takes on the value 3.1415....
 
 - Class: text
-Output: The result is a vector of real numbers starting with pi (3.142...) and increasing
-in increments of 1. The upper limit of 10 is never reached, since the next number
-in our sequence would be greater than 10.
+  Output: The result is a vector of real numbers starting with pi (3.142...) and increasing in increments of 1. The upper limit of 10 is never reached, since the next number in our sequence would be greater than 10.
 
 - Class: cmd_question
-Output: 'What happens if we do 15:1? Give it a try to find out.'
-CorrectAnswer: '15:1'
-AnswerTests: omnitest(correctExpr='15:1')
-Hint: Type 15:1 and press Enter.
+  Output: 'What happens if we do 15:1? Give it a try to find out.'
+  CorrectAnswer: '15:1'
+  AnswerTests: omnitest(correctExpr='15:1')
+  Hint: Type 15:1 and press Enter.
 
 - Class: text
-Output: It counted backwards in increments of 1!
+  Output: It counted backwards in increments of 1!
 	
-	- Class: cmd_question
-Output: |-
-	One limitation of the colon operator is it can only make integer sequences for which the values differ by 1.
-
-Say if instead of constructing a vector of the first five, non-negative, even numbers as before, you were tasked with making a vector of the first five-hundred, non-negative, even numbers.
-
-'seq()' is a generalization of the colon operator and it is exceptionally handy. 'seq()' constructs a sequence of values according to parameters you pass it.
-
-enter 'help(seq)' below and read up on how to use the 'seq()' function. Pay special attention to the Details section.
-CorrectAnswer: "help(seq)"
-AnswerTests: any_of_exprs('?seq', 'help(seq)', 'help("seq")')
+- Class: cmd_question
+  Output: |-
+  	One limitation of the colon operator is it can only make integer sequences for which the values differ by 1.
+  
+    Say if instead of constructing a vector of the first five, non-negative, even numbers as before, you were tasked with making a vector of the first five-hundred, non-negative, even numbers.
+  
+    'seq()' is a generalization of the colon operator and it is exceptionally handy. 'seq()' constructs a sequence of values according to parameters you pass it.
+  
+    enter 'help(seq)' below and read up on how to use the 'seq()' function. Pay special attention to the Details section.
+  CorrectAnswer: "help(seq)"
+  AnswerTests: any_of_exprs('?seq', 'help(seq)', 'help("seq")')
 
 - Class: cmd_question
-Output: |-
-	Let's make that vector of the first five-hundred, non-negative, even numbers and store it in an object named even500.
+  Output: |-
+  	Let's make that vector of the first five-hundred, non-negative, even numbers and store it in an object named even500.
   CorrectAnswer: "even500 <- seq(from = 0, length.out = 500, by = 2)"
   AnswerTests: omnitest(correctExpr="even500 <- seq(from = 0, length.out = 500, by = 2)")
   Hint: "You should use three arguments: 'from', 'by', and 'length.out'"
@@ -185,15 +181,15 @@ Output: |-
   Output: |-
     Let's start with a simple vector which will allow us to easily recognize how all this works.
 
-Construct a vector named v which is simply the numbers 1 to 24 in order.
-CorrectAnswer: "v <- 1:24"
-AnswerTests: any_of_exprs('v <- 1:24', 'v <- seq(24)', 'v <- seq(1,24)', 'v <- seq(1, 24, 1)')
-Hint: Use the colon operator or the seq() function.
+    Construct a vector named v which is simply the numbers 1 to 24 in order.
+  CorrectAnswer: "v <- 1:24"
+  AnswerTests: any_of_exprs('v <- 1:24', 'v <- seq(24)', 'v <- seq(1,24)', 'v <- seq(1, 24, 1)')
+  Hint: Use the colon operator or the seq() function.
 
 - Class: cmd_question
-Output: |-
-	Let's look at our vector.
-    
+  Output: |-
+  	Let's look at our vector.
+      
     Enter 'v' below to see the results of your handiwork.
   CorrectAnswer: "v"
   AnswerTests: omnitest(correctExpr = 'v')
@@ -202,17 +198,17 @@ Output: |-
   Output: |-
     Nice! Let's see what the dimension of our obeject is.
 
-Enter 'dim(v)' below to see its dimensionality.
-CorrectAnswer: "dim(v)"
-AnswerTests: omnitest(correctExpr = 'dim(v)')
+    Enter 'dim(v)' below to see its dimensionality.
+  CorrectAnswer: "dim(v)"
+  AnswerTests: omnitest(correctExpr = 'dim(v)')
 
 - Class: cmd_question
-Output: |-
-	The return value of NULL lets us know there is no dimension attribute associated with our vector, don't worry, this is normal and expected.
-    
-    Let's make two copies of our vector named m and a. We can do this at once by "chaining" assignment operations. This is certainly unusual, but there isn't anything technically wrong with it.
-    
-    Type 'a <- m <- v' below and hit enter.
+  Output: |-
+  	The return value of NULL lets us know there is no dimension attribute associated with our vector, don't worry, this is normal and expected.
+      
+      Let's make two copies of our vector named m and a. We can do this at once by "chaining" assignment operations. This is certainly unusual, but there isn't anything technically wrong with it.
+      
+      Type 'a <- m <- v' below and hit enter.
   CorrectAnswer: "a <- m <- v"
   AnswerTests: omnitest(correctExpr = 'a <- m <- v')
   
@@ -220,15 +216,15 @@ Output: |-
   Output: |-
     Now, we need to set the dimension attribute for our matrix m. Let's make our matrix have 4 rows and 6 columns.
 
-Enter 'dim(m) <- c(4, 6)' below.
-CorrectAnswer: "dim(m) <- c(4,6)"
-AnswerTests: omnitest(correctExpr = 'dim(m) <- c(4,6)')
+    Enter 'dim(m) <- c(4, 6)' below.
+  CorrectAnswer: "dim(m) <- c(4,6)"
+  AnswerTests: omnitest(correctExpr = 'dim(m) <- c(4,6)')
 
 - Class: cmd_question
-Output: |-
-	Next, we can set the dimension attribute for our array a. Let's make our array have 4 rows, 3 columns, and 2 slices.
-    
-    Enter 'dim(a) <- c(4, 3, 2)' below.
+  Output: |-
+  	Next, we can set the dimension attribute for our array a. Let's make our array have 4 rows, 3 columns, and 2 slices.
+      
+      Enter 'dim(a) <- c(4, 3, 2)' below.
   CorrectAnswer: "dim(a) <- c(4, 3, 2)"
   AnswerTests: omnitest(correctExpr = 'dim(a) <- c(4, 3, 2)')
 
@@ -236,44 +232,44 @@ Output: |-
   Output: |-
     Prefect, now let's take a look at our vector and our matrix together. We can see them together if we put them into a list object.
 
-Enter 'list(v, m)' below.
-CorrectAnswer: "list(v, m)"
-AnswerTests: omnitest(correctExpr = 'list(v, m)')
+    Enter 'list(v, m)' below.
+  CorrectAnswer: "list(v, m)"
+  AnswerTests: omnitest(correctExpr = 'list(v, m)')
 
 - Class: text
-Output: |-
-	Notice how the values from our vector have been put into the matrix. We start in the upper left-hand corner and continue down the first column. R is what is refered to as a "column-major" language because when filling up a matrix it does so one column at a time. Other languages like Python and C++ are what is refered to as "row-major" because they fill matrices one row at a time instead. Neither method is "better" than the other, but it's a distinction you should be aware of if you program in any other languages ESPECIALLY if you ever plan on interfacing between R and another language,
-
+  Output: |-
+  	Notice how the values from our vector have been put into the matrix. We start in the upper left-hand corner and continue down the first column. R is what is refered to as a "column-major" language because when filling up a matrix it does so one column at a time. Other languages like Python and C++ are what is refered to as "row-major" because they fill matrices one row at a time instead. Neither method is "better" than the other, but it's a distinction you should be aware of if you program in any other languages ESPECIALLY if you ever plan on interfacing between R and another language,
+  
 - Class: cmd_question
   Output: |-
     Now let's take a look at our vector and our array together.
 
-Enter 'list(v, a)' below.
-CorrectAnswer: "list(v, a)"
-AnswerTests: omnitest(correctExpr = 'list(v, a)')
+    Enter 'list(v, a)' below.
+  CorrectAnswer: "list(v, a)"
+  AnswerTests: omnitest(correctExpr = 'list(v, a)')
 
 - Class: text
-Output: |-
-	Take a minute or two and look how the array has been filled. Think on it a bit and try to imagine how you would describe how the array was filled.
+  Output: |-
+  	Take a minute or two and look how the array has been filled. Think on it a bit and try to imagine how you would describe how the array was filled.
+  
+- Class: mult_question
+  Output: What is the "major" dimension of the array?
+  AnswerChoices: Rows, [X,,], the first dimension.; Columns, [,X,], the second dimension.; Slices, [,,X], the third dimension.
+  CorrectAnswer: Slices, [,,X], the third dimension.
+  AnswerTests: omnitest(correctVal="Slices, [,,X], the third dimension.")
+  Hint: "Which dimension splits 1:24 into 1:12 and 13:24?"
 
 - Class: mult_question
-Output: What is the "major" dimension of the array?
-	AnswerChoices: Rows, [X,,], the first dimension.; Columns, [,X,], the second dimension.; Slices, [,,X], the third dimension.
-CorrectAnswer: Slices, [,,X], the third dimension.
-AnswerTests: omnitest(correctVal="Slices, [,,X], the third dimension.")
-Hint: "Which dimension splits 1:24 into 1:12 and 13:24?"
-
-- Class: mult_question
-Output: What if we had a 4-dimensional array, which dimension would we fill along?
+  Output: What if we had a 4-dimensional array, which dimension would we fill along?
 	AnswerChoices: Rows, [X,,,], the first dimension.; Columns, [,X,,], the second dimension.; Slices, [,,X,], the third dimension.; Blocks, [,,,X], the fourth dimension.
-CorrectAnswer: Blocks, [,,,X], the fourth dimension.
-AnswerTests: omnitest(correctVal="Blocks, [,,,X], the fourth dimension.")
-Hint: "What is the pattern?"
+  CorrectAnswer: Blocks, [,,,X], the fourth dimension.
+  AnswerTests: omnitest(correctVal="Blocks, [,,,X], the fourth dimension.")
+  Hint: "What is the pattern?"
 
 - Class: cmd_question
-Output: |-
-	Let's again look at our vector and our matrix together.
-    
+  Output: |-
+  	Let's again look at our vector and our matrix together.
+      
     Enter 'list(v, m)' below.
   CorrectAnswer: "list(v, m)"
   AnswerTests: omnitest(correctExpr = 'list(v, m)')
@@ -284,17 +280,17 @@ Output: |-
     
     Let's extract the 15 from the vector and the matrix. 15 is the 15th element of the vector and it is in row 3 coulmn 4 of our matrix.
 
-Enter 'list(v[15], m[3, 4])' below to extract the element at index 15 in the vector and the element in row 3 column 4 in the matrix.
-CorrectAnswer: "list(v[15], m[3, 4])"
-AnswerTests: omnitest(correctExpr = 'list(v[15], m[3, 4])')
+    Enter 'list(v[15], m[3, 4])' below to extract the element at index 15 in the vector and the element in row 3 column 4 in the matrix.
+  CorrectAnswer: "list(v[15], m[3, 4])"
+  AnswerTests: omnitest(correctExpr = 'list(v[15], m[3, 4])')
 
 - Class: cmd_question
-Output: |-
-	Now, to really emphasize the point a matrix is really just a vector in disguise, try subsetting the 15th element from the matrix.
-
-Enter 'm[15]' below.
-CorrectAnswer: "m[15]"
-AnswerTests: omnitest(correctExpr = 'm[15]')
+  Output: |-
+  	Now, to really emphasize the point a matrix is really just a vector in disguise, try subsetting the 15th element from the matrix.
+  
+    Enter 'm[15]' below.
+  CorrectAnswer: "m[15]"
+  AnswerTests: omnitest(correctExpr = 'm[15]')
 
 - Class: text
 Output: |-
@@ -315,63 +311,63 @@ Output: |-
   v5 <- 1:5
 
 - Class: cmd_question
-Output: |-
-	Starting out nice and simple, try 'rbind(v1, v2)'.
-CorrectAnswer: "rbind(v1, v2)"
-AnswerTests: omnitest(correctExpr = 'rbind(v1, v2)')
+  Output: |-
+  	Starting out nice and simple, try 'rbind(v1, v2)'.
+  CorrectAnswer: "rbind(v1, v2)"
+  AnswerTests: omnitest(correctExpr = 'rbind(v1, v2)')
 
 - Class: cmd_question
-Output: |-
-	Let's see how that differs from 'cbind(v1, v2)', this time store the matrix as m.
+  Output: |-
+  	Let's see how that differs from 'cbind(v1, v2)', this time store the matrix as m.
   CorrectAnswer: "m <- cbind(v1, v2)"
   AnswerTests: omnitest(correctExpr = 'm <- cbind(v1, v2)')
 
 - Class: cmd_question
   Output: |-
     And let's have a look at m.
-CorrectAnswer: "m"
-AnswerTests: omnitest(correctExpr = 'm')
-Hint: Type "m" and press enter.
+  CorrectAnswer: "m"
+  AnswerTests: omnitest(correctExpr = 'm')
+  Hint: Type "m" and press enter.
 
 - Class: cmd_question
-Output: |-
-	Now, if we wanted to add a third column, we can do 'cbind(m, v3)', try it below.
-CorrectAnswer: "cbind(m, v3)"
-AnswerTests: omnitest(correctExpr = 'cbind(m, v3)')
+  Output: |-
+  	Now, if we wanted to add a third column, we can do 'cbind(m, v3)', try it below.
+  CorrectAnswer: "cbind(m, v3)"
+  AnswerTests: omnitest(correctExpr = 'cbind(m, v3)')
 
 - Class: cmd_question
-Output: |-
-	Note, we would have gotten the same thing if we had simply used cbind() on all three vectors at once. Try 'cbind(v1, v2, v3)'.
-CorrectAnswer: "cbind(v1, v2, v3)"
-AnswerTests: omnitest(correctExpr = 'cbind(v1, v2, v3)')
+  Output: |-
+  	Note, we would have gotten the same thing if we had simply used cbind() on all three vectors at once. Try 'cbind(v1, v2, v3)'.
+  CorrectAnswer: "cbind(v1, v2, v3)"
+  AnswerTests: omnitest(correctExpr = 'cbind(v1, v2, v3)')
 
 - Class: text
-Output: |-
-	This will generally be better than calling cbind() multiple times. We'll see why in a bit.
+  Output: |-
+  	This will generally be better than calling cbind() multiple times. We'll see why in a bit.
   
 - Class: cmd_question
   Output: |-
     Now, what do you think will happen if we try binding together different sized vectors?
     
     Let's find out, shall we? Type 'cbind(v1, v4, v5)' below and hit enter.
-CorrectAnswer: "cbind(v1, v4, v5)"
-AnswerTests: omnitest(correctExpr = 'cbind(v1, v4, v5)')
+  CorrectAnswer: "cbind(v1, v4, v5)"
+  AnswerTests: omnitest(correctExpr = 'cbind(v1, v4, v5)')
 
 - Class: text
-Output: |-
-	Notice how it recycled both shorter vectors to match the longest vector.
+  Output: |-
+  	Notice how it recycled both shorter vectors to match the longest vector.
 
 - Class: cmd_question
-Output: |-
-	Now, what if we did it in pieces instead? bind v1 and v4 together and save the result as m.
-CorrectAnswer: "m <- cbind(v1, v4)"
-AnswerTests: omnitest(correctExpr = 'm <- cbind(v1, v4)')
+  Output: |-
+  	Now, what if we did it in pieces instead? bind v1 and v4 together and save the result as m.
+  CorrectAnswer: "m <- cbind(v1, v4)"
+  AnswerTests: omnitest(correctExpr = 'm <- cbind(v1, v4)')
 
 - Class: cmd_question
-Output: |-
-	Let's take a look at m.
-  CorrectAnswer: "m"
-  AnswerTests: omnitest(correctExpr = 'm')
+  Output: |-
+  	Let's take a look at m.
+    CorrectAnswer: "m"
+    AnswerTests: omnitest(correctExpr = 'm')
 
 - Class: mult_question
   Output: Now, if we were to call 'cbind(m, v5)', where m is a 4x2 matrix and v is a length 5 vector, what do you think will happen?
@@ -384,15 +380,14 @@ Output: |-
   Output: |-
     Let's verify that.
 
-Type 'cbind(m, v5)' below.
-CorrectAnswer: "cbind(m, v5)"
-AnswerTests: omnitest(correctExpr = 'cbind(m, v5)')
+    Type 'cbind(m, v5)' below.
+  CorrectAnswer: "cbind(m, v5)"
+  AnswerTests: omnitest(correctExpr = 'cbind(m, v5)')
 
 
 - Class: mult_question
-Output: Would you like to submit the log of this lesson to Google Forms so
-that your instructor may evaluate your progress?
+  Output: Would you like to submit the log of this lesson to Google Forms so that your instructor may evaluate your progress?
 	AnswerChoices: Yes;No
-CorrectAnswer: NULL
-AnswerTests: submit_log()
-Hint: hint
+  CorrectAnswer: NULL
+  AnswerTests: submit_log()
+  Hint: hint
