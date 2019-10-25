@@ -13,8 +13,6 @@
 
     The only thing which differentiates a matrix (or array) from a vector is that it has an additional dimensional attribute named "dim" attached to it. To drive this point home, we will restrict ourselves to constructing matrices and arrays by adding this attribute to a vector.
 
-
-
 - Class: cmd_question
   Output: |-
     Let's start with a simple vector which will allow us to easily recognize how all this works.
@@ -218,11 +216,36 @@
   Output: |-
     Let's verify that.
 
-    Type 'cbind(m, v5)' below.
-  CorrectAnswer: "cbind(m, v5)"
-  AnswerTests: omnitest(correctExpr = 'cbind(m, v5)')
+    Type 'm2 <- cbind(m, v5)' below.
+  CorrectAnswer: "m2 <- cbind(m, v5)"
+  AnswerTests: omnitest(correctExpr = 'm2 <- cbind(m, v5)')
 
+- Class: cmd_question
+  Output: |-
+    And type m2 below to view the new matrix.
+  CorrectAnswer: "m2"
+  AnswerTests: omnitest(correctExpr = 'm2')
 
+- Class: cmd_question
+  Output: |-
+    Use the which() function to find the element of m2 with the value 2.
+  CorrectAnswer: "which(m2 == 2)"
+  AnswerTests: omnitest(correctExpr = 'which(m2 == 2)')
+
+- Class: text
+  Output: |-
+    Notice how it returned the value 10?
+    
+    This is the vector index of the value 2 in m2. But, what if we needed the row and column where the 2 can be found?
+    
+- Class: cmd_question
+  Output: |-
+    We could create a new function which would convert the vector index into an array index, or we could just set the argument arr.ind = TRUE in the function call to which().
+    
+    Try it below.
+  CorrectAnswer: "which(m2 == 2, arr.ind = TRUE)"
+  AnswerTests: omnitest(correctExpr = 'which(m2 == 2, arr.ind = TRUE)')
+    
 - Class: mult_question
   Output: Would you like to submit the log of this lesson to Google Forms so that your instructor may evaluate your progress?
   AnswerChoices: Yes;No
