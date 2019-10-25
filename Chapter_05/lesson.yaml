@@ -1,0 +1,20 @@
+- Class: meta
+  Course: Stats 20
+  Lesson: Chapter 5 - Factors
+  Author: Jake Kramer
+  Type: Standard
+  Organization: UCLA
+  Version: 2.4.4
+
+# Questions go here:
+
+
+
+
+## Leave this last question for submitting the logfile.
+- Class: mult_question
+  Output: Would you like to submit the log of this lesson to Google Forms so that your instructor may evaluate your progress?
+  AnswerChoices: Yes;No
+  CorrectAnswer: NULL
+  AnswerTests: submit_log()
+  Hint: hint
