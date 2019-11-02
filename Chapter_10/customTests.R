@@ -104,3 +104,49 @@ submit_log <- function(...){
   
 }
 
+test_f1 <- function() {
+  try({
+    t1 <- identical(f1(2), 1)
+    t2 <- identical(f1(0), 0)
+    t3 <- identical(f1(224), 112)
+    t4 <- identical(f1(3), 3)
+    t5 <- identical(f1(1), 1)
+    t6 <- identical(f1(15), 15)
+    ok <- all(c(t1, t2, t3, t4, t5, t6))
+  }, silent = TRUE)
+  exists('ok') && isTRUE(ok)
+}
+
+test_f2 <- function() {
+  try({
+    t1 <- identical(f2(2), 1)
+    t2 <- identical(f2(0), 0)
+    t3 <- identical(f2(224), 112)
+    t4 <- identical(f2(3), 10)
+    t5 <- identical(f2(1), 4)
+    t6 <- identical(f2(15), 46)
+    ok <- all(c(t1, t2, t3, t4, t5, t6))
+  }, silent = TRUE)
+  exists('ok') && isTRUE(ok)
+}
+
+test_f3 <- function() {
+  try({
+    t1 <- identical(f3(sample(10)), 1:10)
+    t2 <- identical(f3(10), 10)
+    t3 <- identical(f3(integer(0)), integer(0))
+    ok <- all(c(t1, t2, t3))
+  }, silent = TRUE)
+  exists('ok') && isTRUE(ok)
+}
+
+test_f4 <- function() {
+  try({
+    t1 <- identical(f4(27), 111)
+    t2 <- identical(f4(21), 7)
+    t3 <- identical(f4(1), 0)
+    t4 <- identical(f4(543210), 146)
+    ok <- all(c(t1, t2, t3, t4))
+  }, silent = TRUE)
+  exists('ok') && isTRUE(ok)
+}
