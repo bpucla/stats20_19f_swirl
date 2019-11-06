@@ -92,7 +92,6 @@
   
 - Class: text
   Output: Notice that group2 has 3 levels since we added an additional level to group. And group2 keeps the levels of group unless the drop=TRUE is used.
-  
 
 - Class: mult_question
   Output: |-
