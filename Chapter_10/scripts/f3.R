@@ -1,4 +1,4 @@
-bubble_sort <- function(x){
+f3 <- function(x){
 	n <- length(x)
 	for(j in 1:(n - 1)){
 		for(i in 1:(n - j)){
