@@ -1,0 +1,239 @@
+- Class: meta
+  Course: stats_20
+  Lesson: new_dataframes
+  Author: Onyambu
+  Type: Standard
+  Organization: UCLA
+  Version: 2.4.4
+
+- Class: text
+  Output: Welcome to lesson 6. We will talk about DataFrame! 
+      So far you have seen and interacted with dataframes. Here is more to practice.
+  
+- Class: cmd_question
+  Output: We will start with the iris dataframe. Take a look at the dataset
+  CorrectAnswer: iris
+  AnswerTests: any_of_exprs("iris","print(iris)")
+  Hint: Just type iris and enter.
+
+- Class: cmd_question
+  Output: Wow the data covers the whole of the console. We can view the data on the editor's pane window by simply typing View(iris)
+  CorrectAnswer: View(iris)
+  AnswerTests: omnitest(correctExpr = 'View(iris)')
+
+- Class: cmd_question
+  Output: The command above shows us the whole dataset in the editors' pane. What if we just needed to view the first 5 observations? use head function  
+  CorrectAnswer: head(iris, n=5)
+  AnswerTests: any_of_exprs("head(iris, n=5)","head(iris, 5)", "head(x = iris, n = 5)")
+  Hint: You should use the n parameter in the head function to indicate the number of observations you want to be printed. You need 5 observations
+
+
+- Class: cmd_question
+  Output: What about the last 5 observations? 
+  CorrectAnswer: tail(iris, n=5)
+  AnswerTests: any_of_exprs("tail(iris, n=5)","tail(iris, 5)", "tail(x = iris, n = 5)")
+
+
+- Class: cmd_question
+  Output: Instead of just looking at a section of the dataframe, we can look at the structure. 
+  CorrectAnswer: str(iris)
+  AnswerTests: omnitest(correctExpr = 'str(iris)')
+  Hint: us the str function.
+
+- Class: text
+  Output: Great! We are able to see that iris is of class 'dataframe'. It has 150 observations and 5 variables. The variable names together with the class of the variable are also indicated.
+
+- Class: text
+  Output: We can see that four of the five variables are numeric while one is a factor.
+
+- Class: cmd_question
+  Output: How can you find the number of observations?
+  CorrectAnswer: nrow(iris)
+  AnswerTests: any_of_exprs('nrow(iris)', 'NROW(iris)', 'length(rownames(iris))', 'dim(iris)[1]')
+
+
+- Class: cmd_question
+  Output: What about the number of variables?
+  CorrectAnswer: ncol(iris)
+  AnswerTests: any_of_exprs('ncol(iris)', 'NCOL(iris)', 'length(names(iris))', 'dim(iris)[2]','length(iris)')
+
+- Class: cmd_question
+  Output: If you want to manually edit the dataset, use the fix or edit functions. eg call fix(iris) or even edit(iris). These functions can be used to fix or edit any R object. From the Data Editor you can click on help to get more information. Close the Data Editor..
+  CorrectAnswer: fix(iris)
+  AnswerTests: any_of_exprs('fix(iris)', 'edit(iris)')
+
+- Class: cmd_question
+  Output: There is a summary function, it gives us an overview of the data. type summary(iris)
+  CorrectAnswer: summary(iris)
+  AnswerTests: omnitest(correctExpr = 'summary(iris)')
+
+- Class:  cmd_question
+  Output: What is the mode of a dataframe? (Find the mode of iris )
+  CorrectAnswer: mode(iris)
+  AnswerTests: omnitest(correctExpr = 'mode(iris)')
+
+- Class: text_question
+  Output: We see that a dataframe is stored as a list. What will you get if you run is.list(iris)?
+  CorrectAnswer: 'TRUE'
+  AnswerTests: val_matches('(?i)\\s*TRUE\\s*')
+
+- Class: cmd_question
+  Output: we can coerce a dataframe to a list by using the as.list function. Go ahead and coerce the iris dataset
+  CorrectAnswer: as.list(iris)
+  AnswerTests: omnitest(correctExpr = 'as.list(iris)')
+
+- Class: cmd_question
+  Output: The professor said that lists are vectors (well rather generic vectors) what of dataframes. Are they vectors too? use is.vector function on iris dataset
+  CorrectAnswer: is.vector(iris)
+  AnswerTests: omnitest(correctExpr = 'is.vector(iris)')
+
+- Class: cmd_question
+  Output: Now first coerce iris to a list then  test whether the list is a vector. Just one line of command
+  CorrectAnswer: is.vector(as.list(iris))
+  AnswerTests: omnitest(correctExpr = 'is.vector(as.list(iris))')
+  Hint: is.vector(as.list(...))
+
+- Class: text
+  Output: Did you notice the difference? Even though a dataframe has mode list, it is not a vector. Therefore the common functions applicable to a vector such as c() will not be applicable to a dataframe as a whole unless first coerced to a list
+
+- Class: text_question
+  Output: You should know the difference between atomic and generic vectors. Generic vectors are recursive in nature. What is the result of is.atomic(as.list(iris))?
+  CorrectAnswer: 'FALSE'
+  AnswerTests: val_matches('(?i)\\s*FALSE\\s*')
+
+- Class: text_question
+  Output: what of is.recursive(iris) or even is.recursive(as.list(iris))
+  CorrectAnswer: 'TRUE'
+  AnswerTests: val_matches('(?i)\\s*TRUE\\s*')
+
+
+- Class: text
+  Output: Great. we have just learned that a dataframe is a list. Therefore, we can use all the functions for list on a dataframe! we extract elements in a similar fashion as we do for lists. Also since it is arranged in a table format, most of the functions we used for matrices, work for dataframes as well.
+
+- Class: text
+  Output: Difference between dataframe and list
+    1. All the variables in a dataframe have same length,
+    2. A dataframe contains rowname attributes.
+    3. A list is a generic vector while a dataframe is not.
+
+- Class: cmd_question
+  Output: what are the variables in iris dataset?
+  CorrectAnswer: names(iris)
+  AnswerTests: any_of_exprs("names(iris)","colnames(iris)")
+
+- Class: cmd_question
+  Output: what about in trees dataset? What are the variables?
+  CorrectAnswer: names(trees)
+  AnswerTests: any_of_exprs("names(trees)","colnames(trees)")
+
+- Class: cmd_question
+  Output: Lets take a brief look at the trees dataset before we go back to the iris dataset. Use any method you've learned so far to familiarize yourself with the tree dataset. Look at it to know the various variables. Its often advisable to open the data you are dealing with on the editors pane so that you can look at it anytime you want instead of printing it each time on the console.
+  CorrectAnswer: trees
+  AnswerTests: any_of_exprs('trees','print(trees)','str(trees)','View(trees)')
+
+- Class: cmd_question
+  Output: in the trees dataset,  the diameter (in inches) is erroneously labelled Girth. Change the variable name to be Diameter instead
+  CorrectAnswer: names(trees)[1] <- "Diameter"
+  AnswerTests: any_of_exprs('names(trees)[1] <- "Diameter"', 'names(trees)[1] = "Diameter"','fix(trees)')
+  Hint: use fix function or names function to change the name. Do not use edit
+
+- Class: cmd_question
+  Output: You can check whether the name Girth did change to Diameter
+  CorrectAnswer: trees
+  AnswerTests: any_of_exprs('trees','print(trees)','str(trees)','View(trees)','names(trees)','names(trees)[1]')  
+
+- Class: cmd_question
+  Output: How can you add a column named log_volume which is computed as log(Volume) to the trees dataset? You have learned various methods. We will use transform. ie try transform(trees, log_volume = log(Volume)).
+  CorrectAnswer: transform(trees, log_volume = log(Volume))
+  AnswerTests: omnitest(correctExpr = 'transform(trees, log_volume = log(Volume))')
+
+- Class: cmd_question
+  Output: You can add multiple columns at once as long as the added columns dont depend on each other. eg transform(trees, log_volume = log(Volume),log_height = log(Height))
+  CorrectAnswer: transform(trees, log_volume = log(Volume),log_height = log(Height))
+  AnswerTests: omnitest(correctExpr = 'transform(trees, log_volume = log(Volume),log_height = log(Height))')
+
+
+- Class: cmd_question
+  Output: You will note that trees dataset still do not have the added columns. ie type trees and enter 
+  CorrectAnswer: trees
+  AnswerTests: any_of_exprs('trees','print(trees)','str(trees)','View(trees)')
+
+- Class: cmd_question   
+  Output: To simply have it in the trees dataset, we assign the newly transformed dataset to trees. eg trees <- transform(trees, log_volume = log(Volume)). 
+  CorrectAnswer: trees <- transform(trees, log_volume = log(Volume))
+  AnswerTests: omnitest(correctExpr = 'trees <- transform(trees, log_volume = log(Volume))');expr_creates_var('trees')
+
+- Class: text
+  Output: Think of the transform function as a combination of two function(with and cbind functions). Also note that the variable log_volume is not present in the Global environment.
+
+- Class: text 
+  Output: Great Let us look at another example. In your in your global environment, you should see stat_data.
+  
+- Class: cmd_question
+  Output: What command would you run to print this data on the console?
+  CorrectAnswer: stat_data
+  AnswerTests: any_of_exprs('stat_data','print(stat_data)')
+  Hint: You need to view the data on the console
+  
+- Class: cmd_question
+  Output: What is the class of stat_data?
+  CorrectAnswer: class(stat_data)
+  AnswerTests: omnitest(correctExpr = 'class(stat_data)')
+  Hint: Write a code that will tell you the class of the object in question.
+
+- Class: cmd_question
+  Output: How would you obtain the number of students in this dataset?
+  CorrectAnswer: nrow(stat_data)
+  AnswerTests: any_of_exprs('nrow(stat_data)', 'NROW(stat_data)', 'length(rownames(stat_data))',
+         'dim(stat_data)[1]')
+  Hint: Think on how to obtain the number of observations
+
+- Class: cmd_question
+  Output: How would you obtain the number of tests each student took?
+  CorrectAnswer: ncol(stat_data)
+  AnswerTests: any_of_exprs('ncol(stat_data)', 'NCOL(stat_data)', 'length(names(stat_data))',
+     'dim(stat_data)[2]')
+  Hint: Think on how to obtain the number of variables
+  
+- Class: cmd_question
+  Output: For each student, Find the position for the course that they performed the best. 
+    For example, for Alex, position 2 (Stat101A) is the course he performed the best
+    For Michael 1 (stat100A) is the course he performed the best.
+  CorrectAnswer: max.col(stat_data)
+  AnswerTests: omnitest(correctExpr =  'max.col(stat_data)')
+  Hint: use max.col function.
+  
+- Class: text
+  Output: From the problem above we see max.col() gives us the  maximum column value position
+     for each row. That is why it is called max.col, ie the maximum column for each row.
+     We can use this together with the column names to determine the class each student performed the best
+     ie try colnames(stat_data)[max.col(stat_data)]
+
+- Class: cmd_question
+  Output: Find the average for each course
+  CorrectAnswer: colMeans(stat_data)
+  AnswerTests: omnitest(correctExpr = 'colMeans(stat_data)')
+  Hint: use colMeans/rowMeans
+  
+- Class: cmd_question
+  Output: Find the average for each student
+  CorrectAnswer: rowMeans(stat_data)
+  AnswerTests: omnitest(correctExpr = 'rowMeans(stat_data)')
+  Hint: use colMeans/rowMeans
+  
+- Class: cmd_question
+  Output: Coerce the stat_data into a data_frame 
+  CorrectAnswer: as.data.frame(stat_data)
+  AnswerTests: omnitest(correctExpr = 'as.data.frame(stat_data)')
+  
+## Leave this last question for submitting the logfile.
+- Class: mult_question
+  Output: Would you like to submit the log of this lesson to Google Forms so that your instructor may evaluate your progress?
+  AnswerChoices: Yes;No
+  CorrectAnswer: NULL
+  AnswerTests: submit_log()
+  Hint: hint
+
+  
+
+  
