@@ -171,7 +171,7 @@
 
 - Class: script
   Output: |
-    The function in the above script to loop while x is any number other than one, you should count and return the number of times the loop body is executed. (You don't need to worry about validating input, you may assume x will be integer valued.) 
+    Edit the function in the above script to loop while x is any number other than one, you should count and return the number of times the loop body is executed. (You don't need to worry about validating input, you may assume x will be integer valued.) 
     
     When you are finished, SAVE the script file and type submit() below.
   AnswerTests: test_f4()
