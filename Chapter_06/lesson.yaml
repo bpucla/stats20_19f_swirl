@@ -57,10 +57,10 @@
   CorrectAnswer: ncol(iris)
   AnswerTests: any_of_exprs('ncol(iris)', 'NCOL(iris)', 'length(names(iris))', 'dim(iris)[2]','length(iris)')
 
-- Class: cmd_question
-  Output: If you want to manually edit the dataset, use the fix or edit functions. eg call fix(iris) or even edit(iris). These functions can be used to fix or edit any R object. From the Data Editor you can click on help to get more information. Close the Data Editor..
-  CorrectAnswer: fix(iris)
-  AnswerTests: any_of_exprs('fix(iris)', 'edit(iris)')
+#- Class: cmd_question
+#  Output: If you want to manually edit the dataset, use the fix or edit functions. eg call fix(iris) or even edit(iris). These functions can be used to fix or edit any R object. From the Data Editor you can click on help to get more information. Close the Data Editor..
+#  CorrectAnswer: fix(iris)
+#  AnswerTests: any_of_exprs('fix(iris)', 'edit(iris)')
 
 - Class: cmd_question
   Output: There is a summary function, it gives us an overview of the data. type summary(iris)
@@ -134,8 +134,8 @@
 - Class: cmd_question
   Output: in the trees dataset,  the diameter (in inches) is erroneously labelled Girth. Change the variable name to be Diameter instead
   CorrectAnswer: names(trees)[1] <- "Diameter"
-  AnswerTests: any_of_exprs('names(trees)[1] <- "Diameter"', 'names(trees)[1] = "Diameter"','fix(trees)')
-  Hint: use fix function or names function to change the name. Do not use edit
+  AnswerTests: any_of_exprs('names(trees)[1] <- "Diameter"', 'names(trees)[1] = "Diameter"')
+  Hint: use names function to change the name.
 
 - Class: cmd_question
   Output: You can check whether the name Girth did change to Diameter
