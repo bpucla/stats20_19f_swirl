@@ -1,6 +1,6 @@
 - Class: meta
   Course: Stats 20
-  Lesson: Chapter 5 - Factors
+  Lesson: Chapter 8 - Applying Vectorized Functions
   Author: Bo Pang
   Type: Standard
   Organization: UCLA
@@ -11,102 +11,122 @@
 
 - Class: cmd_question
   Output: |-
-    Let's start with a simple factor. First, construct a vector named group with the following elements: control, treatment, control, treatment, treatment.
-  CorrectAnswer: 'group <- c("control","treatment","control","treatment","treatment")'
-  AnswerTests: any_of_exprs('group <- c("control","treatment","control","treatment","treatment")')
-  Hint: Use the c() function.
+    An R object, L, is given in the workspace. Use str() to examine the structure of L.
+  CorrectAnswer: 'str(L)'
+  AnswerTests: any_of_exprs('str(L)')
+  Hint: Just type in str(L) function.
 
 - Class: cmd_question
   Output: |-
-    Then create a factor named group with the vector you just created.
-  CorrectAnswer: 'group <- factor(group)'
-  AnswerTests: any_of_exprs('group <- factor(group)')
-  Hint: Use the factor() function.
+    How many components does the list, L, have?
+  CorrectAnswer: '4'
+  AnswerTests: any_of_exprs('4')
+  Hint: Look at the output of str(L).
+
+- Class: cmd_question
+  Output: |-
+    An R object, parks_df, is given in the workspace. Use summary() to summarize parks_df.
+  CorrectAnswer: 'summary(parks_df)'
+  AnswerTests: any_of_exprs('summary(parks_df)')
+  Hint: Just type in summary(parks_df) function.
+  
+  
+- Class: text
+  Output: Notice that the output of summary() will depend on the class of the input object. For data frames, the summary() function will compute summary statistics for each column in the data frame. If the column is a character or factor vector, the summary() output will adapt and return frequencies.
+
+
+- Class: cmd_question
+  Output: |-
+    An R object, A, is given in the workspace. Use an R function to find out the class of A. Just type in the R command.
+  CorrectAnswer: 'class(A)'
+  AnswerTests: any_of_exprs('class(A)')
+  Hint: Just type in class(A) function.
+
+
+- Class: cmd_question
+  Output: |-
+    Use a vectorized R function to compute the standard deviation of each column. Just type in the R command. 
+  CorrectAnswer: 'apply(A, 2, sd)'
+  AnswerTests: any_of_exprs('apply(A, 2, sd)')
+  Hint: Use apply().
+
+- Class: cmd_question
+  Output: |-
+    Use a vectorized R function to find out the class of each component in parks_df. Just type in the R command. 
+  CorrectAnswer: 'lapply(parks_df, class)'
+  AnswerTests: any_of_exprs('lapply(parks_df, class)')
+  Hint: Use lapply().
+  
 
 - Class: mult_question
   Output: |-
-    In what data type the factor, group, is internally stored in R?
+    The input to lapply() should be of which class? 
   AnswerChoices: character;factor;list;integer;numeric
-  CorrectAnswer: integer
-  AnswerTests: omnitest(correctVal='integer')
+  CorrectAnswer: list
+  AnswerTests: omnitest(correctVal='list')
 
 
 - Class: text
-  Output: Even though the factor, group, is created from a character vector, it is stored as integers in R internally.
-  
+  Output: Even though the lappy() function is designed for list, it also works for data frames since data frames are stored as lists in R.
+
+- Class: cmd_question
+  Output: |-
+    Use a vectorized R function to find out the class of each component in L. Just type in the R command. 
+  CorrectAnswer: 'lapply(L, class)'
+  AnswerTests: any_of_exprs('lapply(L, class)')
+  Hint: Use lapply().
+
   
 - Class: mult_question
   Output: |-
-    Can you apply numeric operations to factors?
-  AnswerChoices: yes;no
-  CorrectAnswer: no
-  AnswerTests: omnitest(correctVal='no')
+    The output of lapply() is of which class? 
+  AnswerChoices: character;factor;list;integer;numeric
+  CorrectAnswer: list
+  AnswerTests: omnitest(correctVal='list')
+
+- Class: cmd_question
+  Output: |-
+    Use sapply() to find out the class of each component in L. Just type in the R command. 
+  CorrectAnswer: 'sapply(L, class)'
+  AnswerTests: any_of_exprs('sapply(L, class)')
+  Hint: Use sapply().
+
+
+- Class: mult_question
+  Output: |-
+    What is the class of sapply(L, class)? 
+  AnswerChoices: character;factor;list;integer;numeric
+  CorrectAnswer: character
+  AnswerTests: omnitest(correctVal='character')
+
 
 - Class: text
-  Output: Because factors represent categorical data, we cannot apply the usual arithmetic operations on them, even though the values of factors are stored as integers. Attempting to apply numeric operations to factors will cause R to throw a warning and produce a vector of NA values.
-
-
-- Class: cmd_question
-  Output: |-
-    Print out all the levels of group.
-  CorrectAnswer: 'levels(group)'
-  AnswerTests: any_of_exprs('levels(group)')
-  Hint: Use the levels() function.
-
-- Class: mult_question
-  Output: |-
-    What is the class of levels(group)?
-  AnswerChoices: numeric vector;integer vector;character vector;list
-  CorrectAnswer: character vector
-  AnswerTests: omnitest(correctVal='character vector')
+  Output: The sapply() function is a wrapper for lapply(), so sapply() also applies a function to each component of a list. The only difference is that sapply() will try to simplify the output from lapply() whenever possible. 
 
 - Class: cmd_question
   Output: |-
-    Add a new level, treatment2, to the group.
-  CorrectAnswer: 'levels(group)[3] <- "treatment2"'
-  AnswerTests: any_of_exprs('levels(group)[3] <- "treatment2"')
-  Hint: Use the levels() function.
+    Use vapply() to find out the class of each component in L. Just type in the R command. 
+  CorrectAnswer: 'vapply(L, class, character(1))'
+  AnswerTests: any_of_exprs('vapply(L, class, character(1))')
+  Hint: Use vapply().
 
-
-- Class: cmd_question
-  Output: |-
-    Create a frequency table of group.
-  CorrectAnswer: 'table(group)'
-  AnswerTests: any_of_exprs('table(group)')
-  Hint: Use the table() function.
-
-- Class: cmd_question
-  Output: |-
-    Create a new factor, group2, by extracting the first two elements of the factor, group.
-  CorrectAnswer: 'group2 <- group[1:2]'
-  AnswerTests: any_of_exprs('group2 <- group[1:2]')
-  Hint: Use [].
-
-- Class: cmd_question
-  Output: |-
-    Use a built-in R function to print out the number of levels of group2?
-  CorrectAnswer: 'nlevels(group2)'
-  AnswerTests: any_of_exprs('nlevels(group2)')
-  Hint: Use nlevels().
-  
-  
 - Class: text
-  Output: Notice that group2 has 3 levels since we added an additional level to group. And group2 keeps the levels of group unless the drop=TRUE is used.
+  Output: The vapply() function is similar to sapply(), except that it requires an third argument called FUN.VALUE that specifies the type of return value you expect the FUN function to output.The strictness of vapply() imposed by requiring the FUN.VALUE argument helps in making sure that your output has exactly the structure you expect. 
 
-- Class: mult_question
+
+- Class: cmd_question
   Output: |-
-    Suppose three factors are created with the following commands.
-    a <- factor(c("C", "a", "b", "A", "a", "A"))
-    b <- factor(c("C", "a", "b", "A", "a", "A"), ordered = TRUE)
-    c <- factor(c("C", "a", "b", "A", "a", "A"), levels = c("C", "a", "b", "A"), 
-                 ordered = TRUE)
-    Which factor(s) have levels, "a", "A", "b",  "C".
-    
-  AnswerChoices: a; b; a and b; c; b and c; a and c
-  CorrectAnswer: a and b
-  AnswerTests: omnitest(correctVal='a and b')
+    The pulse of all participants in a stress study is stored in an R object, pulse, in the workspace. Also, two potential factors, F1 and F2, that might affect one's stress level as measured by pulse are also given in the workspace. Examine the main effect of F1 by computing the mean pulse of each level in F1 with a vectorized R function.   
+  CorrectAnswer: 'tapply(pulse, F1, mean)'
+  AnswerTests: any_of_exprs('tapply(pulse, F1, mean)')
+  Hint: Use tapply().
 
-
+- Class: cmd_question
+  Output: |-
+    Examine the interaction effect of F1 and F2 by computing the mean pulse of combinations of levels from F1 and F2. 
+  CorrectAnswer: 'tapply(pulse, list(F1, F2), mean)'
+  AnswerTests: any_of_exprs('tapply(pulse, list(F1, F2), mean)')
+  Hint: Use tapply().
 
 ## Leave this last question for submitting the logfile.
 - Class: mult_question
